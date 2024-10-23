@@ -1,20 +1,21 @@
 {
-  "name": "electron-app-universal-protocol-client",
+  "name": "@highlight/electron-app-universal-protocol-client",
   "version": "1.3.0",
   "license": "MIT",
   "description": "Unified cross-platform protocol handler for Electron apps, supporting development environments.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
+    "build/Release/*.node",
     "dist",
-    "prebuilds",
+    "src",
     "binding.gyp",
     "package.json",
     "README.md"
   ],
   "scripts": {
-    "install": "echo 'Using prebuilds'",
-    "build": "tsc",
+    "build": "node-gyp clean configure rebuild && tsc",
+    "clean": "node-gyp clean",
     "example": "electron example/main.js"
   },
   "dependencies": {
@@ -32,9 +33,5 @@
   },
   "peerDependencies": {
     "electron": ">12.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/witcher112/electron-app-universal-protocol-client.git"
   }
 }
